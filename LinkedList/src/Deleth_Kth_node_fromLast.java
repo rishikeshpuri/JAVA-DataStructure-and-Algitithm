@@ -1,0 +1,124 @@
+public class Deleth_Kth_node_fromLast {
+    public static class Node{
+        int data;
+        Node next;
+    }
+    public static class LinkedList{
+        Node head;
+        Node tail;
+        int size;
+
+        boolean isEmpty(){
+            return size == 0;
+        }
+
+        int sizeLL(){
+            return size;
+        }
+
+        void atLastInsert(int value){
+            Node temp = new Node();
+            temp.data = value;
+            temp.next = null;
+            if (isEmpty()){
+                head = tail = temp;
+            }
+            else {
+
+                tail.next = temp;
+                tail = temp;
+            }
+            size++;
+        }
+
+        void atStartInsert(int value){
+            Node temp = new Node();
+            temp.data = value;
+            if (isEmpty()){
+
+                temp.next = null;
+                head = tail = temp;
+            }
+            else {
+                temp.next = head;
+                head = temp;
+            }
+            size++;
+        }
+        void removeLast(){
+            if (isEmpty()){
+                System.out.println("list is empty");
+            }
+            else if (head.next == null){// or  (size == 1)
+                head = tail= null;
+                size--;
+            }
+            else {
+                Node temp = head;
+
+                while (temp.next.next != null){
+                    temp = temp.next;
+                }
+                temp.next = null;
+                tail = temp;
+                size--;
+            }
+
+        }
+        void removeFirst(){
+            if (isEmpty()){
+                System.out.println("list is empty");
+            }
+            else if (head.next == null){
+                head = tail = null;
+                size--;
+            }
+            else {
+                head = head.next;
+                size--;
+            }
+        }
+        void printLinkedList(){
+            Node temp = head;
+            while (temp != null){
+                System.out.print(temp.data+" ");
+                temp = temp.next;
+            }
+        }
+        void deleteKth(int k){
+            Node slow = head;
+            Node fast = head;
+
+            while (k>=1){
+                fast = fast.next;
+                k--;
+            }
+
+            if (fast == null){
+                head = head.next;
+            }
+            else {
+                while (fast.next != null){
+                    slow = slow.next;
+                    fast = fast.next;
+                }
+                slow.next = slow.next.next;
+            }
+        }
+
+
+    }
+
+    public static void main(String[] args) {
+        LinkedList llist = new LinkedList();
+        llist.atLastInsert(1);
+        llist.atLastInsert(2);
+        llist.atLastInsert(3);
+        llist.atLastInsert(4);
+        llist.atLastInsert(5);
+        llist.printLinkedList();
+        System.out.println();
+        llist.deleteKth(3);
+        llist.printLinkedList();
+    }
+}

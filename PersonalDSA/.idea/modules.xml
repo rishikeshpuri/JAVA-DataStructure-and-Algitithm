@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/PersonalDSA.iml" filepath="$PROJECT_DIR$/PersonalDSA.iml" />
+      <module fileurl="file://$PROJECT_DIR$/RECURSION/RECURSION.iml" filepath="$PROJECT_DIR$/RECURSION/RECURSION.iml" />
+    </modules>
+  </component>
+</project>
